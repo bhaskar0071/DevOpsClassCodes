@@ -1,18 +1,18 @@
 pipeline {
     agent any
-	tools{
-		maven "Maven3"
-	}
-        
+    tools{
+        maven "Maven3"
+    }
+
     stages {
         stage('Static Analysis') {
             steps {
                 // Checkout the repository from GitHub
                 git 'https://github.com/bhaskar0071/DevOpsClassCodes.git'
+
                 }
             }
-        }
-
+        
         stage('Code Compilation and Testing') {
             parallel {
                 stage('Code Compilation') {
@@ -21,7 +21,6 @@ pipeline {
                         sh 'mvn compile'
                     }
                 }
-
                 stage('Code Testing') {
                     steps {
                         git 'https://github.com/bhaskar0071/DevOpsClassCodes.git'
@@ -29,7 +28,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }   
+    
     }
 }
-              
