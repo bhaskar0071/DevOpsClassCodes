@@ -18,13 +18,13 @@ pipeline {
                 stage('Code Compilation') {
                     steps {
                         echo 'compiling'
-                        sh 'mvn compile
+                        sh 'mvn compile'
                     }
                 }
                 stage('Code Testing') {
                     steps {
                         git 'https://github.com/bhaskar0071/DevOpsClassCodes.git'
-                        sh 'mvn test
+                        sh 'mvn test'
                     }
                 }
             }
